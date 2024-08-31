@@ -45,6 +45,19 @@ def solution_one(n:int) -> int:
     return solution_one(n-1) + solution_one(n-2)
 
 
+# recursion with memoization
+def solution_two(n:int) -> int:
+    seen = {}
+    def f(n):
+        if n <= 1:
+            return n
+        if n in seen:
+            return seen[n]
+        seen[n] = f(n-1) + f(n-2)
+        return seen[n]
+    return f(n)
+
+
 # TESTING
 # --------------------
 
@@ -57,6 +70,9 @@ test_cases = [
     [[5], 5],
     [[6], 8],
     [[7], 13],
+    [[20], 6765],
+    [[30], 832040],
 ]
 
-test(solution_one, test_cases)
+test(solution_one, test_cases[:-2:]) # excluding last 2 tests as this solution is slow
+test(solution_two, test_cases)
