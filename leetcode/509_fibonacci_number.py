@@ -58,6 +58,14 @@ def solution_two(n:int) -> int:
     return f(n)
 
 
+# iterative
+def solution_three(n:int) -> int:
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a+b
+    return a
+
+
 # TESTING
 # --------------------
 
@@ -76,3 +84,4 @@ test_cases = [
 
 test(solution_one, test_cases[:-2:]) # excluding last 2 tests as this solution is slow
 test(solution_two, test_cases)
+test(solution_three, test_cases)
