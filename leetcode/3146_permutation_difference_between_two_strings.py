@@ -46,10 +46,20 @@ def solution_one(s:str, t:str) -> int:
 def solution_two(s:str, t:str) -> int:
     seen = {}
     result = 0
-    for i in range(len(s)):
-        seen[s[i]] = i
-    for j in range(len(t)):
-        result += abs(seen[t[j]] - j)
+    for i, char in enumerate(s):
+        seen[char] = i
+    for j, char in enumerate(t):
+        result += abs(seen[char] - j)
+    return result
+
+
+def solution_three(s:str, t:str) -> int:
+    s_indices = [0] * 26
+    result = 0
+    for i, char in enumerate(s):
+        s_indices[ord(char) - ord("a")] = i
+    for j, char in enumerate(t):
+        result += abs(s_indices[ord(char) - ord("a")] - j)
     return result
 
 
@@ -63,3 +73,4 @@ test_cases = [
 
 test(solution_one, test_cases)
 test(solution_two, test_cases)
+test(solution_three, test_cases)
