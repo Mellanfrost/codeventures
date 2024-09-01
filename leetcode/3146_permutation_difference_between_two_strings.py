@@ -43,6 +43,16 @@ def solution_one(s:str, t:str) -> int:
     return result
 
 
+def solution_two(s:str, t:str) -> int:
+    seen = {}
+    result = 0
+    for i in range(len(s)):
+        seen[s[i]] = i
+    for j in range(len(t)):
+        result += abs(seen[t[j]] - j)
+    return result
+
+
 # TESTING
 # --------------------
 
@@ -52,3 +62,4 @@ test_cases = [
 ]
 
 test(solution_one, test_cases)
+test(solution_two, test_cases)
