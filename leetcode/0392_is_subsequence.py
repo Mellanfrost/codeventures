@@ -63,6 +63,19 @@ def solution_two(s:str, t:str) -> bool:
     return f(len(s)-1, len(t)-1)
 
 
+# move forward iteratively
+def solution_three(s:str, t:str) -> bool:
+    if s == "":
+        return True
+    i = 0
+    for j in range(len(t)):
+        if s[i] == t[j]:
+            i+=1
+            if i == len(s):
+                return True
+    return False
+
+
 # TESTING
 # --------------------
 
@@ -81,3 +94,4 @@ test_cases = [
 
 test(solution_one, test_cases)
 test(solution_two, test_cases)
+test(solution_three, test_cases)
