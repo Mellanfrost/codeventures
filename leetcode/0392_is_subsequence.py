@@ -40,9 +40,7 @@ def solution_one(s:str, t:str) -> bool:
             return False
         if s[i] == t[j]:
             i+=1
-            j+=1
-        else:
-            j+=1
+        j+=1
         return f(i, j)
     return f(0, 0)
 
