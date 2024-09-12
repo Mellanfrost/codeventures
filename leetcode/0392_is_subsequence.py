@@ -45,6 +45,24 @@ def solution_one(s:str, t:str) -> bool:
     return f(0, 0)
 
 
+# move backward recursively
+def solution_two(s:str, t:str) -> bool:
+    if s == "":
+        return True
+    if t == "":
+        return False
+    def f(i, j):
+        if i == 0 and s[i] == t[j]:
+            return True
+        if j == 0:
+            return False
+        if s[i] == t[j]:
+            i-=1
+        j-=1
+        return f(i, j)
+    return f(len(s)-1, len(t)-1)
+
+
 # TESTING
 # --------------------
 
@@ -62,3 +80,4 @@ test_cases = [
 ]
 
 test(solution_one, test_cases)
+test(solution_two, test_cases)
