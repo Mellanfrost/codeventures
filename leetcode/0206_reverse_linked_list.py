@@ -44,3 +44,15 @@ def solution_one(head:Optional[ListNode]) -> Optional[ListNode]:
         node.next = previous_node
         return f(next_node, node)
     return f(head, None)
+
+
+def solution_two(head:Optional[ListNode]) -> Optional[ListNode]:
+    if not head or not head.next:
+        return head
+    previous = None
+    while head:
+        current = head
+        head = head.next
+        current.next = previous
+        previous = current
+    return previous
