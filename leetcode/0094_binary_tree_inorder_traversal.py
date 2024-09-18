@@ -54,6 +54,22 @@ def solution_one(root:Optional[TreeNode]) -> list[int]:
     return res
         
 
+def solution_two(root:Optional[TreeNode]) -> list[int]:
+    if not root:
+        return []
+    res = []
+    stack = []
+    while stack or root:
+        if root:
+            stack.append(root)
+            root = root.left
+        else:
+            temp = stack.pop()
+            res.append(temp.val)
+            root = temp.right
+    return res
+
+
 # TESTING
 # --------------------
 
@@ -65,3 +81,4 @@ test_cases = [
 ]
 
 test(solution_one, test_cases)
+test(solution_two, test_cases)
