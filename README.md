@@ -1,7 +1,5 @@
 # Codeventures
 
-<br>
-
 ### codeventure
 /ˈkəʊdˌvɛn(t)ʃər/  
 
