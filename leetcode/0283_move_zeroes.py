@@ -29,3 +29,10 @@ def solution_one(nums: list[int]) -> None:
             nums.append(0)
         else:
             i+=1
+
+
+def solution_two(nums: list[int]) -> None:
+    for i in range(len(nums)):
+        if nums[i] == 0:
+            nums.remove(0)
+            nums.append(0)
