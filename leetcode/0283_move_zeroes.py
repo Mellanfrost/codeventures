@@ -36,3 +36,10 @@ def solution_two(nums: list[int]) -> None:
         if nums[i] == 0:
             nums.remove(0)
             nums.append(0)
+
+
+def solution_three(nums: list[int]) -> None:
+    zeroes = nums.count(0)
+    for _ in range(zeroes):
+        nums.remove(0)
+        nums.append(0)
